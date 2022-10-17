@@ -2,11 +2,10 @@
 # и выведите на экран их сумму.
 #Пример:
 #- Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
-
+import functools
 n = int(input('Введите число: '))
-list=[]
-count = 0
-for i in range (1,n+1):
-    list.append((1+ (1/i))**i)
-    count+=list[i-1]
-print(f'{list} -> {count}')
+
+num_list = [(1 + (1 / i))**i for i in range (1, n + 1)]
+count = functools.reduce(lambda x, y: x + y, num_list)
+
+print(f'{num_list} -> {count}')
